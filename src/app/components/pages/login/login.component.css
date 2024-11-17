@@ -7,7 +7,7 @@
 
 .eye {
   width: 31px;
-  margin-right: -78px;
+  margin-right: -40px;
 }
 
 h2 {
@@ -28,7 +28,7 @@ label {
 }
 
 input {
-  width: 100%;
+  width: 95%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 13px;
@@ -56,11 +56,12 @@ button:hover:not(:disabled) {
 /* Responsive adjustments for tablets and smaller screens */
 @media (max-width: 600px) {
   .login-container {
-    padding: 10px;
+    padding: 5px;
+    max-width: 90%;
   }
 
   .eye {
-    margin-right: -18px;
+    margin-right: -30px;
   }
 
   h2 {

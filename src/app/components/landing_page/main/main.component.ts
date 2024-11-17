@@ -1,11 +1,35 @@
 import { Component } from "@angular/core";
+import { SlideInterface } from "./slidercomponent/slidercomponent.component";
 
 @Component({
   selector: 'main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.sass' ]
+  styleUrls: ['./main.component.sass']
 })
 export class Main {
+
+  constructor() {
+    for (let i = 0; i < 5; i++) {
+      this.slides.push(
+        {
+          url: "../../../../assets/images/AtaPlus-07.png",
+          title: "Star Grower",
+          subtitle: "Agriculture",
+          min: "6,04,000",
+          raised: "80,000",
+          descption: "The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'"
+        },
+        {
+          url: "../../../../assets/images/AtaPlus-08.png", title: "Andy Adams",
+          subtitle: "Finance",
+          min: "1,00,000",
+          raised: "50,000",
+          descption: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout"
+        })
+    }
+  }
+
+  slides: SlideInterface[] = [];
   reasonItems = [
     {
       reasonImageUrl: '../../../assets/images/award.png',
@@ -21,7 +45,7 @@ export class Main {
       reasonImageUrl: '../../../assets/images/icon-onboarding.svg',
       reasonTitle: 'Fast Onboarding',
       reasonContent: 'We don’t do branches. Open your account in minutes online and start taking control of your finances right away.'
-    } 
+    }
   ]
 
   articleItems = [

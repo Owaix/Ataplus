@@ -20,6 +20,7 @@ import { EncryptionService } from "../service/encrypt.service";
 import { ModalComponent } from './shared/modal/modal.component';
 import { AuthGuard } from "../service/auth.guard";
 import { Header2 } from "./landing_page/header2/header.component";
+import { SliderComponent } from "./landing_page/main/slidercomponent/slidercomponent.component";
 
 const routes: Routes = [
   { path: '', component: Main, data: { showHeader: true }, },  // Redirect from MasterPageComponent
@@ -55,7 +56,8 @@ const routerOptions: ExtraOptions = {
     TopicsComponent,
     SubtopicsComponent,
     QuestionsComponent,
-    ModalComponent
+    ModalComponent,
+    SliderComponent
   ],
   providers: [ApiService, AuthService, EncryptionService],
   exports: [

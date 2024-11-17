@@ -86,12 +86,8 @@ select:focus-visible {
 @media (max-width: 600px) {
     .login-container {
         padding: 10px;
+        width: 80%;
     }
-
-    .eye {
-        margin-right: -18px;
-    }
-
     h2 {
         font-size: 1.5em;
     }

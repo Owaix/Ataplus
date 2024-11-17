@@ -6,6 +6,7 @@ import { AuthService } from "src/app/service/auth.service";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.sass']
 })
+
 export class Header2 implements AfterViewInit {
   @ViewChild('menu') menu?: ElementRef<HTMLImageElement>;
   @ViewChild('close') close?: ElementRef<HTMLImageElement>;
@@ -32,6 +33,7 @@ export class Header2 implements AfterViewInit {
       this.nav.nativeElement.style.opacity = '1';
       this.nav.nativeElement.style.transform = 'translate(-50%, 4.5rem)';
       this.nav.nativeElement.classList.add('active');
+      this.menu.nativeElement.classList.add('clicked');
       this.menu.nativeElement.style.display = 'none';
       this.close.nativeElement.style.display = 'block';
     }
@@ -42,7 +44,9 @@ export class Header2 implements AfterViewInit {
       this.nav.nativeElement.style.opacity = '';
       this.nav.nativeElement.style.transform = '';
       this.nav.nativeElement.classList.remove('active');
-      this.menu.nativeElement.style.display = 'block';
+      if (this.menu.nativeElement.classList.contains('clicked')) {
+        this.menu.nativeElement.style.display = 'block';
+      }
       this.close.nativeElement.style.display = 'none';
     }
   }
