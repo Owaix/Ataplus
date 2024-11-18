@@ -1,18 +1,31 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+name: Deploy to Firebase
+
+on:
+  push:
+    branches:
+      - main  # Trigger deployment on push to the 'main' branch
+
 jobs:
-  Explore-GitHub-Actions:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
         uses: actions/checkout@v4
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Angular app
+        run: npm run build --prod  # Make sure your angular.json outputPath is set to 'dist/your-project-name'
+
+      - name: Deploy to Firebase Hosting
+        uses: wzieba/Firebase-Action@v2
+        with:
+          firebase_credentials: 1//03mxb6-BuNcffCgYIARAAGAMSNwF-L9IrN2e6RaI8eKPNvTkY9LP_spv18hlccWfcv0gT3b_4uuqKFt8RuLPo4M1WWYWV1PDbfVU  # Firebase service account key
+          project_id: ataplus-25f58  # Replace with your Firebase project ID
