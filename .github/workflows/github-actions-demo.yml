@@ -25,7 +25,7 @@ jobs:
         run: npm run build --prod  # Make sure your angular.json outputPath is set to 'dist/your-project-name'
 
       - name: Deploy to Firebase Hosting
-        uses: wzieba/Firebase-Action@v2
+        uses: firebase/firebase-tools-action@v10
         with:
           firebase_credentials: 1//03mxb6-BuNcffCgYIARAAGAMSNwF-L9IrN2e6RaI8eKPNvTkY9LP_spv18hlccWfcv0gT3b_4uuqKFt8RuLPo4M1WWYWV1PDbfVU  # Firebase service account key
           project_id: ataplus-25f58  # Replace with your Firebase project ID
