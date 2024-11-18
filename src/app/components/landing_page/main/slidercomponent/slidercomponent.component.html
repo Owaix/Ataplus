@@ -6,15 +6,20 @@
     <div class="slide" [ngStyle]="{ 'background-image': getCurrentSlideUrl() }"></div>
     <div style=" font-family: Avenir-bold !important;  color: #2A245B;font-size: 25px;padding-top: 15px;    ">
         {{obj().title}}</div>
-    <p>{{obj().subtitle}}</p>
-    <span style=" font-family: Avenir-bold !important;  color: #2A245B;font-size: 20px;">Min Targer: RM{{obj().min}}</span><br>
+    <span style="font-style: italic;color: #2A245B">{{obj().subtitle}}</span>
+    <br>
+    <br>
+    <span style=" font-family: Avenir-bold !important;  color: #2A245B;font-size: 20px;">Min Target:
+        RM{{obj().min}}</span><br>
     <span style=" font-family: Avenir-regular !important;  color: #2A245B;">Raised: RM{{obj().raised}}</span>
-    <p>{{obj().descption}}</p>
+    <img src="../../../../../assets/images/loading.png">
+    <p style="color: #2A245B">{{obj().descption}}</p>
     <button style="background-color: #2A245B;color: white;" class="btn">Explore</button>
     <br>
     <br>
     <div class="dotsContainer">
-        <div *ngFor="let slide of slides; let slideIndex = index" class="dot" (click)="goToSlide(slideIndex)">
+        <div [ngStyle]="{'color': currentIndex === slideIndex ? '#da1197' : '#2A245B'}"
+            *ngFor="let slide of slides; let slideIndex = index" class="dot" (click)="goToSlide(slideIndex)">
             ●
         </div>
     </div>
