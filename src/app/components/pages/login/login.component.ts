@@ -44,12 +44,12 @@ export class LoginComponent implements OnInit {
           this.errormsg = '';
           //let token_secret = process.env['token_secret'] || "";
           //const encryptedToken = CryptoJS.AES.encrypt(x.data.access_token, token_secret).toString();
-          localStorage.setItem('token', response.data.access_token);
+          localStorage.setItem('token', response.token);
           // this.mySubscription = this.service.GetProfile().subscribe(x => {
           //   //console.log(encryptedToken);
           //   console.log(this.users.email);
           //   this.authService.login(this.users.email);
-          //   this.router.navigate(['/topics']); // Redirect to home or wherever after login
+          this.router.navigate(['/']); // Redirect to home or wherever after login
           // })
         },
         error => {
