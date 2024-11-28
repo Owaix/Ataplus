@@ -19,7 +19,6 @@ import { QuestionsComponent } from './pages/questions/questions.component';
 import { EncryptionService } from "../service/encrypt.service";
 import { ModalComponent } from './shared/modal/modal.component';
 import { AuthGuard } from "../service/auth.guard";
-import { Header2 } from "./landing_page/header2/header.component";
 import { SliderComponent } from "./landing_page/main/slidercomponent/slidercomponent.component";
 
 const routes: Routes = [
@@ -45,7 +44,6 @@ const routerOptions: ExtraOptions = {
   ],
   declarations: [
     Header,
-    Header2,
     Main,
     Footer,
     ReasonItem,
@@ -62,7 +60,6 @@ const routerOptions: ExtraOptions = {
   providers: [ApiService, AuthService, EncryptionService],
   exports: [
     Header,
-    Header2,
     Main,
     Footer,
     ReasonItem,

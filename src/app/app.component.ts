@@ -5,11 +5,14 @@ import { filter } from 'rxjs';
 @Component({
   selector: 'body',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit {
   isLanding = true;
   constructor(private router: Router, private route: ActivatedRoute) { }
+  isCustomerRoute(): boolean {
+    return this.router.url === ''; // Adjust the route as needed
+  }
   ngAfterViewInit(): void {
     const footer = document.getElementsByTagName('footer')[0];
 

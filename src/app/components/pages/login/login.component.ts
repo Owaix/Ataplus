@@ -41,18 +41,16 @@ export class LoginComponent implements OnInit {
         })
       ).subscribe(
         response => {
-          if (response.status == "SUCCESS") {
-            this.errormsg = '';
-            //let token_secret = process.env['token_secret'] || "";
-            //const encryptedToken = CryptoJS.AES.encrypt(x.data.access_token, token_secret).toString();
-            localStorage.setItem('token', response.data.access_token);
-            this.mySubscription = this.service.GetProfile().subscribe(x => {
-              //console.log(encryptedToken);
-              console.log(this.users.email);
-              this.authService.login(this.users.email);
-              this.router.navigate(['/topics']); // Redirect to home or wherever after login
-            })
-          }
+          this.errormsg = '';
+          //let token_secret = process.env['token_secret'] || "";
+          //const encryptedToken = CryptoJS.AES.encrypt(x.data.access_token, token_secret).toString();
+          localStorage.setItem('token', response.data.access_token);
+          // this.mySubscription = this.service.GetProfile().subscribe(x => {
+          //   //console.log(encryptedToken);
+          //   console.log(this.users.email);
+          //   this.authService.login(this.users.email);
+          //   this.router.navigate(['/topics']); // Redirect to home or wherever after login
+          // })
         },
         error => {
           console.log('Error:', error);

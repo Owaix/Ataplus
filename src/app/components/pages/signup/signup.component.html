@@ -6,17 +6,19 @@
             <h2>Join Us Today to Discover Early Stage and Growing Business From Various Industries</h2>
             <br>
             <div class="input-group">
-                <label for="name">First Name (as per NRIC)</label>
-                <input type="text" id="name" name="name" [(ngModel)]="this.users.name" required #nameField="ngModel" />
-                <div *ngIf="nameField.invalid && nameField.touched" class="error">
+                <label for="first_name">First Name (as per NRIC)</label>
+                <input type="text" id="first_name" first_name="name" [(ngModel)]="this.users.first_name" required
+                    #first_nameField="ngModel" />
+                <div *ngIf="first_nameField.invalid && first_nameField.touched" class="error">
                     First Name is required
                 </div>
             </div>
             <div class="input-group">
-                <label for="name">Last Name (as per NRIC)</label>
-                <input type="text" id="name" name="name" [(ngModel)]="this.users.name" required #nameField="ngModel" />
-                <div *ngIf="nameField.invalid && nameField.touched" class="error">
-                    First Name is required
+                <label for="last_name">Last Name (as per NRIC)</label>
+                <input type="text" id="last_name" name="last_name" [(ngModel)]="this.users.last_name" required
+                    #last_nameField="ngModel" />
+                <div *ngIf="last_nameField.invalid && last_nameField.touched" class="error">
+                    Last Name is required
                 </div>
             </div>
             <div class="input-group">
@@ -36,10 +38,11 @@
                 </div>
             </div>
             <div class="input-group">
-                <label for="name">Username</label>
-                <input type="text" id="name" name="name" [(ngModel)]="this.users.name" required #nameField="ngModel" />
-                <div *ngIf="nameField.invalid && nameField.touched" class="error">
-                    First Name is required
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" [(ngModel)]="this.users.username" required
+                    #usernameField="ngModel" />
+                <div *ngIf="usernameField.invalid && usernameField.touched" class="error">
+                    User name is required
                 </div>
             </div>
             <div class="input-group">

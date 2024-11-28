@@ -1,4 +1,4 @@
-import { Component, ViewChild, AfterViewInit, ElementRef } from "@angular/core";
+import { Component, ViewChild, AfterViewInit, ElementRef, Input } from "@angular/core";
 import { AuthService } from "src/app/service/auth.service";
 
 @Component({
@@ -6,7 +6,9 @@ import { AuthService } from "src/app/service/auth.service";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.sass']
 })
+
 export class Header implements AfterViewInit {
+  @Input() isLanding!: boolean; // Declare isLanding as an Input property
   @ViewChild('menu') menu?: ElementRef<HTMLImageElement>;
   @ViewChild('open') open?: ElementRef<HTMLImageElement>;
   @ViewChild('close') close?: ElementRef<HTMLImageElement>;

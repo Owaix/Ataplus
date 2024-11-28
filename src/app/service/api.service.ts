@@ -12,10 +12,10 @@ export class ApiService {
     constructor(private http: HttpClient) { }
     register(user: User): Observable<any> {
         console.log(JSON.stringify(user));
-        return this.http.post(environment.BASE_URL + 'auth/signup', user);
+        return this.http.post(environment.BASE_URL + 'users/signup', user);
     }
     login(user: User): Observable<any> {
-        return this.http.post(environment.BASE_URL + 'auth/login', user, {
+        return this.http.post(environment.BASE_URL + 'users/login', user, {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json'
             })

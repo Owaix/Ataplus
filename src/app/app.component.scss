@@ -1,0 +1,58 @@
+.header,
+.header2 {
+  padding-block: 20px;
+  background-image: url('../assets/images/header.png');
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  padding-inline: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+
+  &.header2 {
+    background-color: white;
+  }
+}
+
+footer {
+  position: relative;
+  padding-block: 2rem;
+  padding-inline: 10rem;
+  background-color: #2A245B;
+  display: flex;
+  justify-content: space-between;
+  opacity: 1;
+  transition: 0s;
+}
+
+@media screen and (min-aspect-ratio: 1) and (max-width: 1024px) {
+
+  .header,
+  .header2 {
+    padding-inline: 5rem;
+  }
+}
+
+@media screen and (max-aspect-ratio: 1) {
+
+  .header,
+  .header2 {
+    padding-inline: 2rem;
+  }
+
+  footer {
+    padding-inline: 2rem;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  .header,
+  .header2 {
+    padding-inline: 1.5rem;
+  }
+}

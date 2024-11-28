@@ -4,8 +4,7 @@
         unexpected things can happen, and you could lose all your money. Learn More.
     </span>
 </div>
-<header *ngIf="isLanding"></header>
-<header2 *ngIf="!isLanding"></header2>
+<header [isLanding]="isLanding" [ngClass]="isLanding ? 'header' : 'header2'"></header>
 <app-loader></app-loader>
 <router-outlet></router-outlet>
 <footer></footer>

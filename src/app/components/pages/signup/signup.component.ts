@@ -1,7 +1,7 @@
 import { Component, OnInit, Type } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, Subscription, throwError } from 'rxjs';
-import { Category, CategorySector, CategoryType, User } from 'src/app/models/User';
+import { User } from 'src/app/models/User';
 import { ApiService } from 'src/app/service/api.service';
 import { LoaderService } from 'src/app/service/loader.service';
 
@@ -14,13 +14,10 @@ import { LoaderService } from 'src/app/service/loader.service';
 export class SignupComponent implements OnInit {
   users: User = new User;
   private mySubscription: Subscription | null = null;  // Initialized as null
-  typeList: CategoryType[] = [];
-  sectorList: CategorySector[] = [];
   errormsg = '';
   showPassword = false;
   showCnfrmPassword = false;
   errortitle = 'ALERT';
-  categories: Category[] = []
 
   constructor(
     private service: ApiService,
@@ -28,12 +25,7 @@ export class SignupComponent implements OnInit {
     private loaderService: LoaderService
   ) { }
   ngOnInit(): void {
-    this.mySubscription = this.service.Getcategories().subscribe(x => {
-      if (x.status == "SUCCESS") {
-        this.categories = x.data;
-        console.log(this.categories);
-      }
-    })
+
   }
 
   onSubmit() {
@@ -41,6 +33,7 @@ export class SignupComponent implements OnInit {
       this.loaderService.show();
       this.mySubscription = this.service.register(this.users).pipe(
         catchError(err => {
+          console.log(err);
           if (err.status === 400) {
             this.errormsg = err.error.message;
             this.openModal();
@@ -52,28 +45,19 @@ export class SignupComponent implements OnInit {
         })
       ).subscribe(
         response => {
-          if (response.status == "SUCCESS") {
-            this.errormsg = 'success';
-            //localStorage.setItem('token', response.data.access_token);
-            console.log(response);
-            // this.authService.login(this.users.email);
-            this.router.navigate(['/everif']);
-          }
+          this.errormsg = 'success';
+          //localStorage.setItem('token', response.data.access_token);
+          console.log(response);
+          // this.authService.login(this.users.email);
+          this.router.navigate(['/everif']);
         },
         error => {
           console.log('Error:', error);
         }
       );
     }
+  }
 
-  }
-  oncategoryChange(event: any): void {
-    const id = event.target.value;
-    let cate = this.categories.find(y => y.id == id);
-    console.log(cate?.types);
-    this.typeList = cate!.types;
-    this.sectorList = cate!.sectors;
-  }
   ngOnDestroy() {
     if (this.mySubscription) {
       this.mySubscription.unsubscribe();

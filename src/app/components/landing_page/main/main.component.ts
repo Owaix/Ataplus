@@ -4,7 +4,7 @@ import { SlideInterface } from "./slidercomponent/slidercomponent.component";
 @Component({
   selector: 'main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.sass']
+  styleUrls: ['./main.component.scss']
 })
 export class Main {
 
