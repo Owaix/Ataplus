@@ -20,6 +20,7 @@ import { EncryptionService } from "../service/encrypt.service";
 import { ModalComponent } from './shared/modal/modal.component';
 import { AuthGuard } from "../service/auth.guard";
 import { SliderComponent } from "./landing_page/main/slidercomponent/slidercomponent.component";
+import { SubFooter } from "./landing_page/subfooter/footer.component";
 
 const routes: Routes = [
   { path: '', component: Main, data: { showHeader: true }, },  // Redirect from MasterPageComponent
@@ -46,6 +47,7 @@ const routerOptions: ExtraOptions = {
     Header,
     Main,
     Footer,
+    SubFooter,
     ReasonItem,
     ArticleItem,
     LoginComponent,
@@ -62,6 +64,7 @@ const routerOptions: ExtraOptions = {
     Header,
     Main,
     Footer,
+    SubFooter,
     ReasonItem,
     ArticleItem,
     RouterModule

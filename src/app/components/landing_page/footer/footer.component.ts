@@ -3,7 +3,7 @@ import { Component, OnDestroy, AfterViewInit } from "@angular/core";
 @Component({
   selector: 'footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.sass']
+  styleUrls: ['./footer.component.scss']
 })
 export class Footer implements AfterViewInit, OnDestroy {
   nav = ['FAQ', 'Terms And Condition', 'Privacy Policy', 'Contact Us', 'Blog'];
@@ -28,9 +28,9 @@ export class Footer implements AfterViewInit, OnDestroy {
     const svgs = document.getElementsByClassName('icons-social')[0].getElementsByTagName('svg');
 
     for (let i = 0; i < svgs.length; i++) {
-      svgs[i].removeEventListener('mouseover', () => {});
+      svgs[i].removeEventListener('mouseover', () => { });
 
-      svgs[i].removeEventListener('mouseout', () => {});
+      svgs[i].removeEventListener('mouseout', () => { });
     }
   }
 }
