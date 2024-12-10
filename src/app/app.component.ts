@@ -1,15 +1,20 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
+import { LoaderService } from './service/loader.service';
 
 @Component({
   selector: 'body',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent implements AfterViewInit {
   isLanding = true;
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute) {
+  }
   isCustomerRoute(): boolean {
     return this.router.url === ''; // Adjust the route as needed
   }

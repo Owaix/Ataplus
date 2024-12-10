@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { SlideInterface } from "./slidercomponent/slidercomponent.component";
+import { LoaderService } from "src/app/service/loader.service";
 
 @Component({
   selector: 'main',
@@ -8,7 +9,8 @@ import { SlideInterface } from "./slidercomponent/slidercomponent.component";
 })
 export class Main {
 
-  constructor() {
+  constructor(private loaderService: LoaderService
+  ) {
     for (let i = 0; i < 5; i++) {
       this.slides.push(
         {
@@ -27,6 +29,7 @@ export class Main {
           descption: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout"
         })
     }
+    this.loaderService.hide();
   }
 
   slides: SlideInterface[] = [];

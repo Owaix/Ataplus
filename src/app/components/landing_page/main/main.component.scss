@@ -8,6 +8,8 @@ h2 {
     color: $dark-blue;
     font-weight: 700;
     font-size: 43px;
+    line-height: 40px;
+
 }
 
 section {
@@ -46,6 +48,7 @@ section {
     background-position: top;
     background-repeat: no-repeat;
     height: 100vh;
+    margin-top: -81px;
 
     .head1 {
         color: white;
@@ -139,7 +142,6 @@ section {
 #sec4 {
     padding-inline: 16rem 25rem;
     padding-block: 5rem;
-    min-height: calc(100vh - 0rem);
     text-align: center;
 
     .button-image-container {
@@ -317,9 +319,9 @@ section {
 @media screen and (max-width: 767px) {
     #hero {
         background-image: url('../../../../assets/images/bannermobile.png');
+        margin-top: -65px;
 
         .content {
-            padding-block: 3rem;
             padding-inline: 1.5rem;
 
             h1 {
